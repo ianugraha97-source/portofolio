@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark" data-lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indra Adi Nugraha — HR Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Sora:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-weight: 400; overflow-x: hidden; transition: background 0.5s, color 0.5s; }
+
+[data-theme="dark"] {
+  --bg:#0D0C0A;--bg2:#141310;--bg3:#1C1A16;--bg4:#242118;
+  --accent:#D4B078;--accent-light:#EDD9A3;--accent-dim:#A07840;
+  --text:#F5F0E8;--text-muted:#B8AFA0;--text-dim:#8A8070;
+  --border:rgba(201,169,110,0.2);--border-bright:rgba(201,169,110,0.45);
+  --nav-bg:rgba(13,12,10,0.95);--tag-bg:#242118;
+  --font:'Cormorant Garamond',serif;--body-font:'DM Sans',sans-serif;
+}
+[data-theme="light"] {
+  --bg:#FAFAF8;--bg2:#F0EDE6;--bg3:#E8E4DC;--bg4:#DDD9CF;
+  --accent:#1E4D20;--accent-light:#2A6B2D;--accent-dim:#3D7A40;
+  --text:#111110;--text-muted:#3D3D36;--text-dim:#6B6B60;
+  --border:rgba(30,77,32,0.18);--border-bright:rgba(30,77,32,0.38);
+  --nav-bg:rgba(250,250,248,0.96);--tag-bg:#DDD9CF;
+  --font:'Plus Jakarta Sans',sans-serif;--body-font:'Plus Jakarta Sans',sans-serif;
+}
+[data-theme="ocean"] {
+  --bg:#060C12;--bg2:#0A1520;--bg3:#0E1C2C;--bg4:#142438;
+  --accent:#5BC8F5;--accent-light:#93DDFB;--accent-dim:#2A9FD6;
+  --text:#EDF6FD;--text-muted:#A8D4EC;--text-dim:#6AABCF;
+  --border:rgba(91,200,245,0.18);--border-bright:rgba(91,200,245,0.42);
+  --nav-bg:rgba(6,12,18,0.95);--tag-bg:#0E1C2C;
+  --font:'Sora',sans-serif;--body-font:'Sora',sans-serif;
+}
+
+body { background:var(--bg);color:var(--text);font-family:var(--body-font);
+  -webkit-user-select:none;-moz-user-select:none;user-select:none; }
+
+/* NAV */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.1rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--nav-bg);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);transition:background 0.5s,border-color 0.5s;
+}
+.nav-left { display:flex;align-items:center;gap:1.25rem; }
+.nav-logo { font-family:var(--font);font-size:1.05rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);transition:color 0.5s; }
+.nav-links { display:flex;gap:2rem;list-style:none; }
+.nav-links a { text-decoration:none;color:var(--text-muted);font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;font-weight:400; }
+.nav-links a:hover { color:var(--accent); }
+.nav-controls { display:flex;align-items:center;gap:10px; }
+
+/* LANG TOGGLE */
+.lang-toggle {
+  display:flex;align-items:center;
+  background:var(--bg3);border:1px solid var(--border-bright);
+  border-radius:100px;overflow:hidden;
+}
+.lang-btn {
+  padding:6px 14px;font-size:0.76rem;letter-spacing:0.1em;
+  text-transform:uppercase;border:none;cursor:pointer;
+  background:transparent;color:var(--text-muted);
+  transition:all 0.25s;font-family:var(--body-font);font-weight:500;
+}
+.lang-btn.active { background:var(--accent);color:var(--bg); }
+
+/* THEME SWITCHER */
+.theme-switcher {
+  display:flex;align-items:center;gap:5px;
+  background:var(--bg3);border:1px solid var(--border-bright);
+  border-radius:100px;padding:5px 8px;
+}
+.t-label { font-size:0.72rem;letter-spacing:0.1em;color:var(--text-muted);text-transform:uppercase;padding:0 3px; }
+.theme-btn {
+  width:28px;height:28px;border-radius:50%;border:2px solid transparent;
+  cursor:pointer;transition:all 0.25s;font-size:12px;
+  display:flex;align-items:center;justify-content:center;
+}
+.theme-btn:hover { transform:scale(1.12); }
+.theme-btn.active { border-color:var(--accent); }
+.theme-btn[data-t="dark"]  { background:#2A2418; color:#D4B078; }
+.theme-btn[data-t="light"] { background:#C8DEC8; color:#1E4D20; }
+.theme-btn[data-t="ocean"] { background:#0A2A45; color:#5BC8F5; }
+
+/* DOWNLOAD BTN */
+.nav-contact-btn {
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 18px;
+  background:var(--accent);color:var(--bg);
+  border:none;border-radius:100px;cursor:pointer;
+  font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
+  font-family:var(--body-font);font-weight:500;
+  transition:all 0.3s;white-space:nowrap;
+}
+.nav-contact-btn:hover { opacity:0.85;transform:translateY(-1px); }
+
+.dl-btn {
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 16px;border:1px solid var(--border-bright);
+  color:var(--text-muted);background:transparent;
+  font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
+  border-radius:100px;transition:all 0.3s;
+  cursor:pointer;font-family:var(--body-font);white-space:nowrap;font-weight:500;
+}
+.dl-btn:hover { border-color:var(--accent);color:var(--accent); }
+.dl-btn svg { width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round; }
+
+/* ============================================================
+   RESPONSIVITAS GAMBAR — berlaku untuk semua gambar di halaman
+   max-width:100% = gambar tidak melampaui lebar kontainer
+   height:auto    = rasio gambar tetap terjaga
+   ============================================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Galeri foto di dalam popup experience */
+.em-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;    /* foto dipotong proporsional, tidak melar */
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+}
+
+/* Foto profil (jika ditambahkan nanti) */
+.hero-image img {
+  max-width: 100%;      /* PENTING: jangan pakai width:450px — akan meluber di HP */
+  height: auto;
+  border-radius: 4px;
+}
+
+
+.hero { min-height:100vh;display:flex;align-items:center;padding:0 3rem;position:relative;overflow:hidden; }
+.hero-glow { position:absolute;top:-150px;right:-150px;width:600px;height:600px;border-radius:50%;pointer-events:none; }
+[data-theme="dark"]  .hero-glow { background:radial-gradient(circle,rgba(212,176,120,0.08) 0%,transparent 70%); }
+[data-theme="light"] .hero-glow { background:radial-gradient(circle,rgba(30,77,32,0.07) 0%,transparent 70%); }
+[data-theme="ocean"] .hero-glow { background:radial-gradient(circle,rgba(91,200,245,0.08) 0%,transparent 70%); }
+.hero-vline { position:absolute;top:0;bottom:0;right:37%;width:1px;background:linear-gradient(to bottom,transparent,var(--border-bright) 30%,var(--border-bright) 70%,transparent); }
+.hero-content { max-width:620px; }
+.hero-eyebrow { font-size:0.78rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);margin-bottom:1.4rem;display:flex;align-items:center;gap:1rem;transition:color 0.5s;font-weight:500; }
+.hero-eyebrow::before { content:'';width:34px;height:1px;background:var(--accent);display:inline-block; }
+.hero-name { font-family:var(--font);font-size:clamp(2.8rem,5.2vw,4.8rem);font-weight:400;line-height:1.08;margin-bottom:0.55rem;color:var(--text); }
+[data-theme="dark"]  .hero-name em, [data-theme="ocean"] .hero-name em { font-style:italic;color:var(--accent-light); }
+[data-theme="light"] .hero-name em { font-style:normal;color:var(--accent);font-weight:600; }
+.hero-sub { font-family:var(--font);font-size:clamp(1rem,1.5vw,1.25rem);font-weight:400;color:var(--text-muted);letter-spacing:0.06em;margin-bottom:1.8rem; }
+.hero-desc { font-size:0.97rem;line-height:2;color:var(--text-muted);max-width:460px;margin-bottom:2.5rem;font-weight:400; }
+.hero-cta-row { display:flex;gap:1rem;align-items:center;flex-wrap:wrap; }
+.hero-cta {
+  display:inline-flex;align-items:center;gap:0.8rem;
+  padding:0.9rem 1.85rem;border:1px solid var(--accent);
+  color:var(--accent);text-decoration:none;font-size:0.82rem;
+  letter-spacing:0.15em;text-transform:uppercase;transition:all 0.35s;border-radius:2px;
+  font-weight:500;cursor:pointer;background:transparent;font-family:var(--body-font);
+}
+.hero-cta:hover { background:var(--accent);color:var(--bg); }
+.hero-cta::after { content:'→'; }
+
+/* COUNT-UP STATS */
+.hero-stats { position:absolute;right:3rem;bottom:9vh;display:flex;flex-direction:column;gap:2.5rem;text-align:right; }
+.stat-num { font-family:var(--font);font-size:3rem;font-weight:400;color:var(--accent);line-height:1;transition:color 0.5s; }
+.stat-label { font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:0.25rem;font-weight:500; }
+
+/* SECTIONS */
+section { padding:6.5rem 0;transition:background 0.5s; }
+.sec-alt { background:var(--bg2); }
+.section-inner { max-width:1100px;margin:0 auto;padding:0 4rem; }
+
+/* apply section-inner padding to direct section children */
+section > .reveal,
+section > .about-grid,
+section > .exp-list,
+section > .skills-grid,
+section > .edu-grid,
+section > .contact-inner {
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:4rem;
+  padding-right:4rem;
+}
+.hero { padding-left:4rem;padding-right:4rem; }
+.hero-stats { right:4rem; }
+.contact-sec > .reveal { max-width:700px;margin:0 auto;padding:0 2rem; }
+.section-label { font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:0.7rem;transition:color 0.5s;font-weight:500; }
+.section-title { font-family:var(--font);font-size:clamp(1.9rem,3.2vw,3rem);font-weight:400;margin-bottom:0.9rem;line-height:1.18;color:var(--text); }
+[data-theme="dark"]  .section-title em, [data-theme="ocean"] .section-title em { font-style:italic;color:var(--accent-light); }
+[data-theme="light"] .section-title em { font-style:normal;color:var(--accent);font-weight:600; }
+.divider { width:52px;height:1px;background:var(--accent-dim);margin-bottom:2.8rem;transition:background 0.5s; }
+
+/* ABOUT */
+.about-grid { display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1100px; }
+.about-text p { font-size:0.97rem;line-height:2;color:var(--text-muted);margin-bottom:1rem; }
+.core-values { display:flex;flex-direction:column;gap:1.1rem; }
+.value-item { padding:1.3rem 1.4rem;border:1px solid var(--border);background:var(--bg3);position:relative;overflow:hidden;border-radius:2px;transition:background 0.5s,border-color 0.5s; }
+.value-item::before { content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transition:background 0.5s; }
+.value-name { font-family:var(--font);font-size:1.08rem;font-weight:500;color:var(--accent-light);margin-bottom:0.35rem; }
+[data-theme="light"] .value-name { color:var(--accent); }
+.value-desc { font-size:0.88rem;color:var(--text-muted);line-height:1.8; }
+
+/* EXPERIENCE — old classes kept for tag only */
+.exp-tags { display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.75rem; }
+.tag { font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border-bright);padding:0.3rem 0.75rem;background:var(--tag-bg);transition:all 0.5s;border-radius:2px;font-weight:500; }
+
+
+/* SKILLS */
+.skills-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);max-width:1100px;transition:background 0.5s,border-color 0.5s; }
+.skill-cell { background:var(--bg3);padding:1.6rem;transition:background 0.3s; }
+.skill-cell:hover { background:var(--bg4); }
+.skill-icon { font-size:1.2rem;margin-bottom:0.75rem;color:var(--accent-dim); }
+.skill-name { font-family:var(--font);font-size:1.05rem;font-weight:500;color:var(--accent-light);margin-bottom:0.3rem; }
+[data-theme="light"] .skill-name { color:var(--accent); }
+.skill-detail { font-size:0.85rem;color:var(--text-muted);line-height:1.8; }
+
+/* EDUCATION */
+.edu-grid { display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:900px; }
+.edu-card { padding:1.6rem;border:1px solid var(--border);background:var(--bg2);position:relative;border-radius:2px;transition:background 0.5s,border-color 0.5s; }
+.edu-card::after { content:attr(data-year);position:absolute;top:1.4rem;right:1.4rem;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);font-weight:500; }
+.edu-degree { font-family:var(--font);font-size:1.12rem;font-weight:500;color:var(--text);margin-bottom:0.3rem; }
+.edu-school { font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;font-weight:500; }
+.edu-note { font-size:0.83rem;color:var(--text-muted);line-height:1.65; }
+
+/* CONTACT */
+.contact-sec { text-align:center;padding:7.5rem 3rem;background:var(--bg3);transition:background 0.5s; }
+.contact-sec .section-label,.contact-sec .divider { margin-left:auto;margin-right:auto; }
+.contact-sec .divider { margin-bottom:1.4rem; }
+.contact-quote { font-family:var(--font);font-size:clamp(1.25rem,2vw,2rem);font-weight:400;font-style:italic;color:var(--text-muted);max-width:560px;margin:0 auto 2.5rem;line-height:1.7; }
+[data-theme="light"] .contact-quote { font-style:normal; }
+
+footer { padding:1.6rem 0;border-top:1px solid var(--border);transition:border-color 0.5s; }
+.footer-inner { max-width:1100px;margin:0 auto;padding:0 4rem;display:flex;justify-content:space-between;align-items:center; }
+footer p { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.08em;font-weight:400; }
+
+/* BACK TO TOP */
+.back-top {
+  position:fixed;bottom:2rem;right:2rem;z-index:200;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--accent);color:var(--bg);
+  border:none;cursor:pointer;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.35s,transform 0.35s,background 0.5s;
+  box-shadow:0 4px 20px rgba(0,0,0,0.35);
+}
+.back-top.visible { opacity:1;pointer-events:all; }
+.back-top:hover { transform:translateY(-3px); }
+.back-top svg { width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round; }
+
+/* REVEAL */
+.reveal { opacity:0;transform:translateY(20px);transition:opacity 0.75s ease,transform 0.75s ease; }
+.reveal.visible { opacity:1;transform:none; }
+
+/* LANG hidden */
+[data-lang="id"] .en { display:none; }
+[data-lang="en"] .id { display:none; }
+
+/* MODAL */
+@keyframes modalIn { from { opacity:0;transform:translateY(16px) scale(0.97); } to { opacity:1;transform:none; } }
+.modal-contact-item {
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.1rem;
+  border:1px solid var(--border);
+  background:var(--bg3);
+  text-decoration:none;color:var(--text);
+  border-radius:3px;transition:all 0.25s;
+}
+.modal-contact-item:hover { border-color:var(--accent);background:var(--bg4); }
+.modal-contact-item:hover .modal-arrow { color:var(--accent);transform:translateX(3px); }
+.modal-icon { color:var(--accent);flex-shrink:0;display:flex;align-items:center; }
+.modal-label { font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.2rem;font-weight:500; }
+.modal-val { font-size:0.92rem;color:var(--text-muted);font-weight:400; }
+.modal-arrow { margin-left:auto;color:var(--text-dim);font-size:1rem;transition:all 0.25s;flex-shrink:0; }
+
+/* EXP MODAL CONTAINER */
+#expModal { padding:1.5rem; }
+
+
+.exp-list { max-width:820px;display:flex;flex-direction:column;gap:3rem; }
+.exp-company-group { border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color 0.5s; }
+.exp-company-header {
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:1.5rem 1.75rem;
+  background:var(--bg3);
+  border-bottom:1px solid var(--border);
+  gap:1rem;
+  transition:background 0.5s,border-color 0.5s;
+}
+.exp-company-name { font-family:var(--font);font-size:1.2rem;font-weight:500;color:var(--text);margin-bottom:0.25rem; }
+.exp-company-sub { font-weight:300;color:var(--text-muted);font-size:1rem; }
+.exp-company-meta { font-size:0.78rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;font-weight:500; }
+.exp-company-duration { text-align:right;flex-shrink:0; }
+.exp-company-period { font-size:0.82rem;color:var(--text-muted);font-weight:400;margin-bottom:0.2rem; }
+.exp-company-total { font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dim);font-weight:500; }
+
+.exp-roles { padding:0 1.75rem; }
+.exp-role-item { display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:border-color 0.5s; }
+.exp-role-item.last { border-bottom:none; }
+
+.exp-role-indicator { display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:4px; }
+.exp-role-dot { width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;transition:background 0.5s; }
+.exp-role-line { width:1px;flex:1;background:var(--border);margin-top:6px;min-height:20px;transition:background 0.5s; }
+.exp-role-item.last .exp-role-line { display:none; }
+
+.exp-role-content { flex:1; }
+.exp-role-top { display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.6rem; }
+.exp-role-title { font-family:var(--font);font-size:1.05rem;font-weight:500;color:var(--text);margin-bottom:0.2rem; }
+.exp-role-period { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.05em;font-weight:400; }
+.exp-role-desc { font-size:0.88rem;color:var(--text-muted);line-height:1.85;margin-bottom:0.75rem; }
+
+
+.exp-detail-btn {
+  margin-top:1rem;display:inline-flex;align-items:center;gap:6px;
+  font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);background:transparent;
+  border:1px solid var(--border-bright);
+  padding:0.45rem 1rem;border-radius:2px;cursor:pointer;
+  font-family:var(--body-font);font-weight:500;
+  transition:all 0.25s;
+}
+.exp-detail-btn:hover { background:var(--accent);color:var(--bg);border-color:var(--accent); }
+
+/* EMAIL EXPAND OPTIONS */
+.email-opt-item {
+  display:flex;align-items:center;gap:0.75rem;width:100%;
+  padding:0.75rem 1.1rem;font-size:0.85rem;
+  color:var(--text-muted);background:transparent;border:none;
+  cursor:pointer;font-family:var(--body-font);font-weight:400;
+  text-decoration:none;transition:background 0.2s,color 0.2s;
+  border-bottom:1px solid var(--border);
+}
+.email-opt-item:last-child { border-bottom:none; }
+.email-opt-item:hover { background:var(--bg4);color:var(--accent); }
+
+
+.em-gallery { border:1px solid var(--border);border-radius:3px;overflow:hidden; }
+.em-gallery-nav {
+  display:flex;align-items:center;gap:0.75rem;
+  padding:0.75rem 1rem;background:var(--bg3);border-top:1px solid var(--border);
+}
+.gallery-arrow {
+  width:32px;height:32px;border-radius:50%;
+  background:var(--bg4);border:1px solid var(--border-bright);
+  color:var(--text-muted);cursor:pointer;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;flex-shrink:0;font-family:monospace;
+}
+.gallery-arrow:hover { border-color:var(--accent);color:var(--accent); }
+
+
+.em-header { margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border); }
+.em-badge { display:inline-flex;gap:6px;flex-wrap:wrap;margin-bottom:0.75rem; }
+.em-badge span { font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;padding:0.25rem 0.7rem;border-radius:2px;background:var(--bg3);border:1px solid var(--border-bright);color:var(--accent); }
+.em-role { font-family:var(--font);font-size:1.5rem;font-weight:500;color:var(--text);margin-bottom:0.2rem; }
+.em-company { font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:500; }
+.em-section { margin-bottom:1.4rem; }
+.em-section-title { font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-dim);font-weight:500;margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border); }
+.em-info-grid { display:grid;grid-template-columns:1fr 1fr;gap:0.6rem; }
+.em-info-item { background:var(--bg3);border:1px solid var(--border);padding:0.75rem 1rem;border-radius:2px; }
+.em-info-label { font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);font-weight:500;margin-bottom:0.2rem; }
+.em-info-val { font-size:0.9rem;color:var(--text);font-weight:400; }
+.em-desc-list { list-style:none;display:flex;flex-direction:column;gap:0.5rem; }
+.em-desc-list li { font-size:0.9rem;color:var(--text-muted);line-height:1.75;padding-left:1.2rem;position:relative; }
+.em-desc-list li::before { content:'—';position:absolute;left:0;color:var(--accent-dim); }
+.em-achievement { background:var(--bg3);border-left:3px solid var(--accent);padding:0.75rem 1rem;border-radius:0 2px 2px 0;margin-bottom:0.5rem; }
+.em-achievement p { font-size:0.9rem;color:var(--text-muted);line-height:1.75; }
+.em-tags { display:flex;flex-wrap:wrap;gap:0.4rem; }
+.em-tag { font-size:0.73rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border-bright);padding:0.3rem 0.75rem;background:var(--tag-bg);border-radius:2px;font-weight:500; }
+
+
+@media (max-width: 768px) {
+  #expModal { padding:1rem; }
+  #expModalInner { padding:1.5rem !important; }
+  .nav-links { display:none; }
+  .nav-left { gap:0.6rem; }
+  .t-label { display:none; }
+  section { padding:5rem 0; }
+  section > .reveal,
+  section > .about-grid,
+  section > .exp-list,
+  section > .skills-grid,
+  section > .edu-grid { padding-left:1.5rem;padding-right:1.5rem; }
+  .hero { padding:1.5rem;padding-top:5.5rem;min-height:auto; }
+  .hero-stats,.hero-vline { display:none; }
+  .about-grid { grid-template-columns:1fr;gap:2.5rem; }
+  .exp-company-header { flex-direction:column;gap:0.5rem; }
+  .exp-company-duration { text-align:left; }
+  .edu-grid { grid-template-columns:1fr; }
+  footer { flex-direction:column;gap:0.4rem;text-align:center; }
+  .contact-sec > .reveal { padding:0 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<!-- ============================================================
+     SPLASH SCREEN
+     Halaman pembuka saat website pertama dibuka.
+       EDIT: Ganti nama, subtitle, dan teks tombol di bawah ini
+     ============================================================ -->
+<div id="splash" style="
+  width:100%;min-height:100vh;
+  background:#0D0C0A;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+">
+  <div id="splash-line-top" style="
+    width:0.5px;height:0;background:rgba(201,169,110,0.3);
+    position:absolute;top:0;left:50%;
+    transition:height 0.9s ease;
+  "></div>
+
+  <div style="text-align:center;">
+    <p id="splash-eyebrow" style="
+      font-family:'DM Sans',sans-serif;font-size:0.65rem;
+      letter-spacing:0.38em;text-transform:uppercase;color:#7A6340;
+      margin-bottom:1.6rem;opacity:0;transform:translateY(8px);
+      transition:opacity 0.7s ease,transform 0.7s ease;
+    ">Human Resource Professional</p>
+
+    <h1 id="splash-name" style="
+      font-family:'Cormorant Garamond',serif;font-weight:300;
+      font-size:clamp(2.4rem,7vw,5.5rem);
+      color:#F0EBE0;line-height:1.05;letter-spacing:0.04em;
+      opacity:0;transform:translateY(14px);
+      transition:opacity 0.9s ease,transform 0.9s ease;
+    ">Indra Adi<br><em style="font-style:italic;color:#C9A96E;">Nugraha</em></h1>
+
+    <div id="splash-divider" style="
+      width:0;height:0.5px;background:#7A6340;
+      margin:2rem auto;
+      transition:width 0.7s ease;
+    "></div>
+
+    <button id="splash-btn" onclick="enterSite()" style="
+      opacity:0;transform:translateY(8px);
+      font-family:'DM Sans',sans-serif;font-size:0.72rem;
+      letter-spacing:0.25em;text-transform:uppercase;
+      color:#C9A96E;background:transparent;
+      border:0.5px solid #C9A96E;padding:0.85rem 2.2rem;
+      cursor:pointer;border-radius:2px;
+      transition:opacity 0.6s ease,transform 0.6s ease,background 0.3s,color 0.3s;
+    "
+    onmouseover="this.style.background='#C9A96E';this.style.color='#0D0C0A';"
+    onmouseout="this.style.background='transparent';this.style.color='#C9A96E';"
+    >
+      <span class="id">Lihat Portofolio</span>
+      <span class="en" style="display:none;">View Portfolio</span>
+    </button>
+  </div>
+
+  <div id="splash-line-bottom" style="
+    width:0.5px;height:0;background:rgba(201,169,110,0.3);
+    position:absolute;bottom:0;left:50%;
+    transition:height 0.9s ease;
+  "></div>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+     Seluruh isi website ada di dalam div ini.
+     Tersembunyi sampai tombol splash diklik.
+     ============================================================ -->
+<div id="main-content" style="display:none;">
+
+<!-- ============================================================
+     NAVBAR — navigasi tetap di atas layar
+       EDIT: Tambah/hapus menu di dalam <ul class="nav-links">
+       EDIT: Teks tombol "Hubungi Saya" ada di nav-contact-btn
+     ============================================================ -->
+<nav>
+  <div class="nav-left">
+    <ul class="nav-links">
+      <li><a href="#tentang"><span class="id">Tentang</span><span class="en">About</span></a></li>
+      <li><a href="#pengalaman"><span class="id">Pengalaman</span><span class="en">Experience</span></a></li>
+      <li><a href="#keahlian"><span class="id">Keahlian</span><span class="en">Skills</span></a></li>
+      <li><a href="#pendidikan"><span class="id">Pendidikan</span><span class="en">Education</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('id')">ID</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="theme-switcher">
+      <span class="t-label">Tema</span>
+      <button class="theme-btn active" data-t="dark"  onclick="setTheme('dark')"  title="Dark Gold">✦</button>
+      <button class="theme-btn"        data-t="light" onclick="setTheme('light')" title="Light Minimal">◎</button>
+      <button class="theme-btn"        data-t="ocean" onclick="setTheme('ocean')" title="Ocean Blue">◈</button>
+    </div>
+    <button class="dl-btn" onclick="downloadCV()">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      CV
+    </button>
+  </div>
+  <button class="nav-contact-btn" onclick="openModal()">
+    <span class="id">Hubungi Saya</span>
+    <span class="en">Contact Me</span>
+  </button>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION — halaman utama pertama yang dilihat
+       EDIT NAMA       : baris "Indra Adi<br><em>Nugraha</em>"
+       EDIT SUBTITLE   : teks di dalam .hero-sub
+       EDIT DESKRIPSI  : teks di dalam .hero-desc
+       EDIT STATISTIK  : data-target di .stat-num (angka count-up)
+       TAMBAH FOTO     : buat div.hero-image dan masukkan <img>
+                           gunakan max-width:100%; height:auto;
+     ============================================================ -->
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-vline"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">
+      <span class="id">Human Resource Professional</span>
+      <span class="en">Human Resource Professional</span>
+    </div>
+    <h1 class="hero-name">Indra Adi<br><em>Nugraha</em></h1>
+    <p class="hero-sub">
+      <span class="id">HR Operation · Business Partner · Industrial & Employee Relations</span>
+      <span class="en">HR Operation · Business Partner · Industrial & Employee Relations</span>
+    </p>
+    <p class="hero-desc">
+      <span class="id">Lebih dari 5 tahun membangun fungsi HR yang kuat — dari rekrutmen, hubungan industrial, pengembangan karyawan, hingga kepatuhan ketenagakerjaan. Berpengalaman berkoordinasi dengan seluruh level manajemen dan serikat pekerja untuk menciptakan lingkungan kerja yang produktif dan harmonis.</span>
+      <span class="en">Over 5 years building strong HR functions — from recruitment, industrial relations, employee development, to labor compliance. Experienced in coordinating across all management levels and labor unions to create a productive and harmonious work environment.</span>
+    </p>
+    <div class="hero-cta-row">
+      <button class="hero-cta" onclick="openModal()">
+        <span class="id">Hubungi Saya</span>
+        <span class="en">Contact Me</span>
+      </button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num" data-target="5" data-suffix="+">0</div>
+      <div class="stat-label"><span class="id">Tahun Pengalaman</span><span class="en">Years Experience</span></div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="4" data-suffix="">0</div>
+      <div class="stat-label"><span class="id">Posisi HR</span><span class="en">HR Roles</span></div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="6" data-suffix="+">0</div>
+      <div class="stat-label"><span class="id">Standar ISO</span><span class="en">ISO Standards</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION — "Tentang Saya"
+       EDIT PARAGRAF   : ubah teks di dalam tag <p class="id"> / <p class="en">
+       EDIT CORE VALUES: ubah .value-name dan .value-desc
+                           (ada 3 value: Compliance, Hubungan Industrial, People & Culture)
+     ============================================================ -->
+<!-- ABOUT -->
+<section class="sec-alt" id="tentang">
+  <div class="reveal">
+    <div class="section-label"><span class="id">Tentang Saya</span><span class="en">About Me</span></div>
+    <h2 class="section-title"><span class="id">Membangun <em>Organisasi</em><br>dari Dalam</span><span class="en">Building <em>Organizations</em><br>from Within</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="id">Saya adalah seorang profesional Human Resources dengan pengalaman lebih dari 5 tahun, berfokus pada pengembangan fungsi HR, pengelolaan sumber daya manusia, serta penciptaan lingkungan kerja yang positif.</p>
+      <p class="en">I am a Human Resources professional with over 5 years of experience, focused on developing HR functions, managing human resources, and creating a positive work environment.</p>
+      <p class="id">Terbiasa bekerja sama dan berkoordinasi dengan seluruh level manajemen, berpengalaman dalam mengelola hubungan karyawan dan hubungan industrial, serta menyusun dan mengomunikasikan kebijakan perusahaan secara menyeluruh.</p>
+      <p class="en">Experienced in collaborating across all management levels, managing employee relations and industrial relations, as well as drafting and communicating company policies comprehensively.</p>
+      <p class="id">Berlatar belakang Ilmu Hukum (Hukum Perdata), saya membawa pemahaman mendalam tentang kepatuhan regulasi ketenagakerjaan sebagai fondasi dalam setiap keputusan HR strategis.</p>
+      <p class="en">With a background in Civil Law, I bring deep understanding of labor regulatory compliance as the foundation for every strategic HR decision.</p>
+    </div>
+    <div class="core-values reveal">
+      <div class="value-item">
+        <div class="value-name">Compliance-Driven</div>
+        <div class="value-desc id">Memastikan setiap proses HR selaras dengan peraturan ketenagakerjaan nasional dan regional untuk meminimalkan risiko hukum.</div>
+        <div class="value-desc en">Ensuring every HR process aligns with national and regional labor regulations to minimize legal risks.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-name id">Hubungan Industrial yang Sehat</div>
+        <div class="value-name en">Healthy Industrial Relations</div>
+        <div class="value-desc id">Membangun hubungan konstruktif antara manajemen dan serikat pekerja melalui komunikasi proaktif dan kolaborasi.</div>
+        <div class="value-desc en">Building constructive relationships between management and labor unions through proactive communication and collaboration.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-name">People & Culture Champion</div>
+        <div class="value-desc id">Menginisiasi program employee engagement yang berdampak nyata pada peningkatan keterlibatan dan retensi karyawan.</div>
+        <div class="value-desc en">Initiating employee engagement programs that have a real impact on improving employee involvement and retention.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCE SECTION — riwayat pekerjaan
+       STRUKTUR: Setiap perusahaan = 1 blok .exp-company-group
+     TAMBAH PERUSAHAAN BARU: duplikasi blok [COMPANY] beserta isinya
+       DATA DETAIL POPUP: edit di bagian JavaScript → var expData = { ... }
+                             cari // --- EXP DETAIL MODAL --- di bagian script
+       TAMBAH FOTO GALERI: isi url:'' di bagian gallery: [ { url:'LINK_FOTO_KAMU' } ]
+     ============================================================ -->
+<!-- EXPERIENCE -->
+<section id="pengalaman">
+  <div class="reveal">
+    <div class="section-label"><span class="id">Perjalanan Karier</span><span class="en">Career Journey</span></div>
+    <h2 class="section-title"><span class="id">Pengalaman <em>Profesional</em></span><span class="en">Professional <em>Experience</em></span></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="exp-list">
+
+    <!--   PERUSAHAAN 1: PT. SARI MURNI JAYA
+         Edit: nama perusahaan, industri, periode, durasi, deskripsi singkat, dan tag skill
+         Detail lengkap (job desc, pencapaian, galeri) → edit di expData.job1 di bagian script -->
+    <div class="exp-company-group reveal">
+      <div class="exp-company-header">
+        <div>
+          <div class="exp-company-name">PT. Sari Murni Jaya <span class="exp-company-sub">(Momogi Group)</span></div>
+          <div class="exp-company-meta">
+            <span class="id">FMCG · Sidoarjo, Jawa Timur</span>
+            <span class="en">FMCG · Sidoarjo, East Java</span>
+          </div>
+        </div>
+        <div class="exp-company-duration">
+          <div class="exp-company-period"><span class="id">Des 2025 — Sekarang</span><span class="en">Dec 2025 — Present</span></div>
+          <div class="exp-company-total"><span class="id">± 6 bulan</span><span class="en">± 6 months</span></div>
+        </div>
+      </div>
+
+      <div class="exp-roles">
+        <div class="exp-role-item">
+          <div class="exp-role-indicator"><div class="exp-role-dot"></div><div class="exp-role-line"></div></div>
+          <div class="exp-role-content">
+            <div class="exp-role-top">
+              <div>
+                <div class="exp-role-title">HR Business Partner</div>
+                <div class="exp-role-period"><span class="id">Des 2025 — Sekarang</span><span class="en">Dec 2025 — Present</span></div>
+              </div>
+              <button class="exp-detail-btn" onclick="openExpModal('job1')">
+                <span class="id">Detail</span><span class="en">Detail</span> ↗
+              </button>
+            </div>
+            <div class="exp-role-desc id">Mengelola rekrutmen end-to-end, onboarding, evaluasi kinerja, hubungan industrial, program employee engagement, dan HR support audit ISO 14001, 22000 & GMP.</div>
+            <div class="exp-role-desc en">Managing end-to-end recruitment, onboarding, performance evaluation, industrial relations, employee engagement programs, and HR support for ISO 14001, 22000 & GMP audits.</div>
+            <div class="exp-tags">
+              <span class="tag">Recruitment</span><span class="tag">Onboarding</span>
+              <span class="tag">Performance Appraisal</span><span class="tag">Employee Engagement</span>
+              <span class="tag">ISO Support</span><span class="tag">Industrial Relations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--   PERUSAHAAN 2: PT. TRIAS SENTOSA (3 posisi — career progression)
+         Edit: nama, industri, total periode & durasi di header
+         Setiap posisi = 1 blok .exp-role-item
+         Detail lengkap → edit expData.job2 / job3 / job4 di bagian script -->
+    <div class="exp-company-group reveal">
+      <div class="exp-company-header">
+        <div>
+          <div class="exp-company-name">PT. Trias Sentosa, Tbk.</div>
+          <div class="exp-company-meta">
+            <span class="id">Manufaktur · Sidoarjo, Jawa Timur</span>
+            <span class="en">Manufacturing · Sidoarjo, East Java</span>
+          </div>
+        </div>
+        <div class="exp-company-duration">
+          <div class="exp-company-period"><span class="id">Agu 2020 – Nov 2025</span><span class="en">Aug 2020 – Nov 2025</span></div>
+          <div class="exp-company-total"><span class="id">5 tahun 4 bulan</span><span class="en">5 years 4 months</span></div>
+        </div>
+      </div>
+
+      <div class="exp-roles">
+
+        <div class="exp-role-item">
+          <div class="exp-role-indicator"><div class="exp-role-dot"></div><div class="exp-role-line"></div></div>
+          <div class="exp-role-content">
+            <div class="exp-role-top">
+              <div>
+                <div class="exp-role-title">Senior HR-IR Officer</div>
+                <div class="exp-role-period"><span class="id">Jun 2025 – Nov 2025 · 6 bulan</span><span class="en">Jun 2025 – Nov 2025 · 6 months</span></div>
+              </div>
+              <button class="exp-detail-btn" onclick="openExpModal('job2')">
+                <span class="id">Detail</span><span class="en">Detail</span> ↗
+              </button>
+            </div>
+            <div class="exp-role-desc id">Memimpin penyusunan PKB/CLA, perundingan bipartit/tripartit, pengawasan outsourcing, kepatuhan perizinan ketenagakerjaan, dan HR support multi-standar ISO.</div>
+            <div class="exp-role-desc en">Led CBA/CLA drafting, bipartite/tripartite negotiations, outsourcing supervision, labor permit compliance, and HR support for multi-standard ISO audits.</div>
+            <div class="exp-tags">
+              <span class="tag">PKB / CLA</span><span class="tag">Industrial Relations</span>
+              <span class="tag">Outsourcing</span><span class="tag">Compliance</span><span class="tag">ISO Audit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-role-item">
+          <div class="exp-role-indicator"><div class="exp-role-dot"></div><div class="exp-role-line"></div></div>
+          <div class="exp-role-content">
+            <div class="exp-role-top">
+              <div>
+                <div class="exp-role-title">Senior HR Officer</div>
+                <div class="exp-role-period"><span class="id">Jan 2023 – Jun 2025 · 2 tahun 6 bulan</span><span class="en">Jan 2023 – Jun 2025 · 2 years 6 months</span></div>
+              </div>
+              <button class="exp-detail-btn" onclick="openExpModal('job3')">
+                <span class="id">Detail</span><span class="en">Detail</span> ↗
+              </button>
+            </div>
+            <div class="exp-role-desc id">Mengelola penilaian kinerja, asesmen kompetensi, pembaruan SOP, perundingan bipartit, pelaporan Disnaker, dan alokasi cost center personalia.</div>
+            <div class="exp-role-desc en">Managing performance appraisal, competency assessment, SOP updates, bipartite negotiations, Disnaker reporting, and personnel cost center allocation.</div>
+            <div class="exp-tags">
+              <span class="tag">Performance Management</span><span class="tag">SOP Development</span>
+              <span class="tag">Payroll Reporting</span><span class="tag">Budget Control</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-role-item last">
+          <div class="exp-role-indicator"><div class="exp-role-dot"></div><div class="exp-role-line"></div></div>
+          <div class="exp-role-content">
+            <div class="exp-role-top">
+              <div>
+                <div class="exp-role-title">HRD Officer</div>
+                <div class="exp-role-period"><span class="id">Agu 2020 – Des 2022 · 2 tahun 5 bulan</span><span class="en">Aug 2020 – Dec 2022 · 2 years 5 months</span></div>
+              </div>
+              <button class="exp-detail-btn" onclick="openExpModal('job4')">
+                <span class="id">Detail</span><span class="en">Detail</span> ↗
+              </button>
+            </div>
+            <div class="exp-role-desc id">Mengelola rekrutmen end-to-end, koordinasi pelatihan & pengembangan karyawan, program induksi, evaluasi masa percobaan, dan perpanjangan SIO.</div>
+            <div class="exp-role-desc en">Managing end-to-end recruitment, training & development coordination, induction programs, probation evaluation, and SIO permit renewals.</div>
+            <div class="exp-tags">
+              <span class="tag">End-to-End Recruitment</span><span class="tag">Training & Development</span>
+              <span class="tag">Probation Evaluation</span><span class="tag">SIO / Perizinan</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- EXP DETAIL MODAL -->
+<div id="expModal" style="
+  display:none;position:fixed;
+  top:62px;left:0;right:0;bottom:0;
+  z-index:90;
+  background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;
+  padding:1.5rem;
+">
+  <div id="expModalInner" style="
+    background:var(--bg2);border:1px solid var(--border-bright);
+    max-width:640px;width:100%;
+    padding:2.5rem;position:relative;
+    border-radius:6px;animation:modalIn 0.3s ease;
+    height:calc(100vh - 62px - 3rem);
+    max-height:780px;
+    overflow-y:auto;
+    overflow-x:hidden;
+  ">
+    <button onclick="closeExpModal()" style="
+      position:absolute;top:1.2rem;right:1.2rem;
+      background:none;border:none;cursor:pointer;
+      color:var(--text-dim);font-size:1.4rem;line-height:1;padding:4px;
+      transition:color 0.2s;
+    " onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-dim)'">&times;</button>
+    <div id="expModalContent"></div>
+    <div style="display:flex;justify-content:flex-end;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border);">
+      <button onclick="closeExpModal()" style="
+        display:inline-flex;align-items:center;gap:6px;
+        font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
+        color:var(--text-muted);background:var(--bg3);
+        border:1px solid var(--border-bright);
+        padding:0.5rem 1.2rem;border-radius:2px;cursor:pointer;
+        font-family:var(--body-font);font-weight:500;transition:all 0.25s;
+      "
+      onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';"
+      onmouseout="this.style.borderColor='var(--border-bright)';this.style.color='var(--text-muted)';"
+      >
+        <span class="id">Tutup</span><span class="en">Close</span> ✕
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ============================================================
+     SKILLS SECTION — area keahlian (8 kotak grid)
+       EDIT SKILL     : ubah teks di .skill-name dan .skill-detail
+       TAMBAH SKILL   : duplikasi satu baris <div class="skill-cell">...</div>
+       HAPUS SKILL    : hapus satu baris <div class="skill-cell">...</div>
+       IKON           : ganti simbol ◈ dengan karakter unicode lain jika mau
+     ============================================================ -->
+<!-- SKILLS -->
+<section class="sec-alt" id="keahlian">
+  <div class="reveal">
+    <div class="section-label"><span class="id">Kompetensi</span><span class="en">Competencies</span></div>
+    <h2 class="section-title"><span class="id">Area <em>Keahlian</em></span><span class="en">Areas of <em>Expertise</em></span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="skills-grid reveal">
+    <!--   Skill 1 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name id">Hubungan Industrial</div><div class="skill-name en">Industrial Relations</div><div class="skill-detail id">Perundingan PKB, bipartit & tripartit, mediasi konflik, koordinasi serikat pekerja, dan pelaporan Disnaker.</div><div class="skill-detail en">CBA negotiation, bipartite & tripartite, conflict mediation, union coordination, and Disnaker reporting.</div></div>
+    <!--   Skill 2 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name id">Rekrutmen & Seleksi</div><div class="skill-name en">Recruitment & Selection</div><div class="skill-detail id">Proses end-to-end rekrutmen, talent sourcing, assessment, onboarding, dan evaluasi masa percobaan.</div><div class="skill-detail en">End-to-end recruitment, talent sourcing, assessment, onboarding, and probation evaluation.</div></div>
+    <!--   Skill 3 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name id">Kepatuhan Ketenagakerjaan</div><div class="skill-name en">Labor Compliance</div><div class="skill-detail id">PKWT/PKWTT, perizinan tenaga kerja, audit vendor outsourcing, dan kepatuhan regulasi nasional & regional.</div><div class="skill-detail en">PKWT/PKWTT, labor permits, outsourcing vendor audits, and national & regional regulatory compliance.</div></div>
+    <!--   Skill 4 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name">Performance Management</div><div class="skill-detail id">Penilaian kinerja, goal setting (KPI), asesmen kompetensi, evaluasi mid year dan end year.</div><div class="skill-detail en">Performance appraisal, goal setting (KPI), competency assessment, mid year and end year evaluation.</div></div>
+    <!--   Skill 5 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name">Training & Development</div><div class="skill-detail id">Koordinasi pelatihan internal & eksternal, evaluasi pascapelatihan, dan program induksi karyawan baru.</div><div class="skill-detail en">Internal & external training coordination, post-training evaluation, and new employee induction programs.</div></div>
+    <!--   Skill 6 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name">Employee Engagement</div><div class="skill-detail id">Inisiasi program engagement, budaya perusahaan positif, dan strategi retensi berbasis data.</div><div class="skill-detail en">Initiating engagement programs, positive company culture, and data-based retention strategies.</div></div>
+    <!--   Skill 7 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name id">HR Reporting & Admin</div><div class="skill-name en">HR Reporting & Admin</div><div class="skill-detail id">Laporan bulanan/mingguan ketenagakerjaan, rekrutmen, pelatihan, penggajian, dan alokasi cost center.</div><div class="skill-detail en">Monthly/weekly labor, recruitment, training, payroll reports, and cost center allocation.</div></div>
+    <!--   Skill 8 --> <div class="skill-cell"><div class="skill-icon">◈</div><div class="skill-name">ISO Audit Support</div><div class="skill-detail">ISO 9001 · 14001 · 22000 · SMK3 · GMP · Sustainability · SMETA</div></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EDUCATION SECTION — pendidikan & sertifikasi (4 kartu)
+       EDIT KARTU     : ubah .edu-degree, .edu-school, .edu-note
+       EDIT TAHUN     : ubah atribut data-year="..." di .edu-card
+       TAMBAH KARTU   : duplikasi blok <div class="edu-card">...</div>
+       HAPUS KARTU    : hapus blok <div class="edu-card">...</div>
+     ============================================================ -->
+<!-- EDUCATION -->
+<section id="pendidikan">
+  <div class="reveal">
+    <div class="section-label"><span class="id">Pendidikan & Sertifikasi</span><span class="en">Education & Certification</span></div>
+    <h2 class="section-title"><span class="id">Fondasi <em>Akademik</em></span><span class="en">Academic <em>Foundation</em></span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-card" data-year="2015 – 2020">
+      <div class="edu-degree id">S1 Ilmu Hukum — Hukum Perdata</div>
+      <div class="edu-degree en">Bachelor of Law — Civil Law</div>
+      <div class="edu-school">UPN "Veteran" Jawa Timur · Surabaya</div>
+      <div class="edu-note id">IPK 3.47 · Anggota BEM Fakultas Hukum</div>
+      <div class="edu-note en">GPA 3.47 · Member of Faculty Student Executive Board</div>
+    </div>
+    <div class="edu-card" data-year="2018">
+      <div class="edu-degree">HKI Administrator</div>
+      <div class="edu-school">Kemenkumham Jawa Timur</div>
+      <div class="edu-note id">Sertifikasi resmi Kementerian Hukum dan HAM</div>
+      <div class="edu-note en">Official certification from the Ministry of Law and Human Rights</div>
+    </div>
+    <div class="edu-card" data-year="Aktif">
+      <div class="edu-degree">ISO Audit Support</div>
+      <div class="edu-school id">Pengalaman Lintas Standar</div>
+      <div class="edu-school en">Cross-Standard Experience</div>
+      <div class="edu-note">ISO 9001 · 14001 · 22000 · SMK3 · SMETA · GMP</div>
+    </div>
+    <div class="edu-card" data-year="—">
+      <div class="edu-degree">Microsoft Office</div>
+      <div class="edu-school id">Tools Operasional HR</div>
+      <div class="edu-school en">HR Operational Tools</div>
+      <div class="edu-note">Word · Excel · PowerPoint</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT / CLOSING SECTION — bagian paling bawah halaman
+       EDIT QUOTE     : ubah teks di dalam .contact-quote
+       EDIT ATRIBUSI  : ubah nama di bawah quote (— Roy Snell, ...)
+     ============================================================ -->
+<!-- CONTACT -->
+<section class="contact-sec" id="kontak">
+  <div class="reveal">
+    <div class="section-label"><span class="id">Penutup</span><span class="en">Closing Note</span></div>
+    <div class="divider"></div>
+    <p class="contact-quote">
+      <span class="id">"Kepatuhan bukan tentang menghindari hukuman — melainkan tentang membangun kepercayaan."</span>
+      <span class="en">"Compliance is not about avoiding punishment — it is about building trust."</span>
+    </p>
+    <p style="font-size:0.78rem;color:var(--text-dim);letter-spacing:0.1em;margin-top:0.75rem;">
+      <span class="id">— Roy Snell, CEO Society of Corporate Compliance and Ethics</span>
+      <span class="en">— Roy Snell, CEO of the Society of Corporate Compliance and Ethics</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT MODAL — popup "Hubungi Saya"
+       EDIT EMAIL     : ganti "ia.nugraha97@gmail.com" (ada 2 tempat: href & teks)
+       EDIT WHATSAPP  : ganti nomor di href="https://wa.me/6282111250698"
+                          format: 62 + nomor tanpa 0 di depan
+       EDIT LINKEDIN  : ganti URL di href="https://linkedin.com/in/ia-nugraha97"
+       EDIT JUDUL     : ubah teks "Hubungi Saya" / "Contact Me"
+     ============================================================ -->
+<!-- CONTACT MODAL -->
+<div id="contactModal" style="
+  display:none;position:fixed;
+  top:62px;left:0;right:0;bottom:0;
+  z-index:90;
+  background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);
+  align-items:flex-start;justify-content:center;padding:2rem 1.5rem;
+">
+  <div style="
+    background:var(--bg2);border:0.5px solid var(--border-bright);
+    max-width:420px;width:100%;padding:2.5rem;position:relative;
+    border-radius:4px;animation:modalIn 0.3s ease;
+  ">
+    <button onclick="closeModal()" style="
+      position:absolute;top:1.2rem;right:1.2rem;
+      background:none;border:none;cursor:pointer;
+      color:var(--text-dim);font-size:1.2rem;line-height:1;
+      transition:color 0.2s;padding:4px;
+    " onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-dim)'">&times;</button>
+
+    <div style="margin-bottom:1.75rem;">
+      <p style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:0.5rem;">
+        <span class="id">Mari Terhubung</span><span class="en">Get In Touch</span>
+      </p>
+      <h3 style="font-family:var(--font);font-size:1.6rem;font-weight:300;color:var(--text);line-height:1.2;">
+        <span class="id">Hubungi <em style="font-style:italic;color:var(--accent-light);">Saya</em></span>
+        <span class="en">Contact <em style="font-style:italic;color:var(--accent-light);">Me</em></span>
+      </h3>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:0.85rem;">
+
+      <!-- EMAIL with expand -->
+      <div class="modal-contact-item email-item" id="emailContactItem" onclick="toggleEmailOptions(event)" style="cursor:pointer;flex-direction:column;gap:0;padding:0;overflow:hidden;">
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;width:100%;">
+          <div class="modal-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div class="modal-label">Email</div>
+            <div class="modal-val">ia.nugraha97@gmail.com</div>
+          </div>
+          <div class="modal-arrow" id="emailArrow">→</div>
+        </div>
+        <!-- Expand options -->
+        <div id="emailOptions" style="
+          display:none;width:100%;
+          border-top:1px solid var(--border);
+          display:none;
+        ">
+          <a href="https://mail.google.com/mail/?view=cm&to=ia.nugraha97@gmail.com" target="_blank"
+            class="email-opt-item"
+            onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            <span class="id">Kirim Email</span><span class="en">Send Email</span>
+          </a>
+          <button class="email-opt-item" id="copyEmailBtn"
+            onclick="copyEmail(event)">
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copyLabel"><span class="id">Salin Email</span><span class="en">Copy Email</span></span>
+          </button>
+        </div>
+      </div>
+
+      <a href="https://wa.me/6282111250698" target="_blank" class="modal-contact-item">
+        <div class="modal-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="modal-label">WhatsApp</div>
+          <div class="modal-val">082111250698</div>
+        </div>
+        <div class="modal-arrow">→</div>
+      </a>
+
+      <a href="https://linkedin.com/in/ia-nugraha97" target="_blank" class="modal-contact-item">
+        <div class="modal-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div>
+          <div class="modal-label">LinkedIn</div>
+          <div class="modal-val">ia-nugraha97</div>
+        </div>
+        <div class="modal-arrow">→</div>
+      </a>
+
+    </div>
+
+    <p style="font-size:0.72rem;color:var(--text-dim);margin-top:1.75rem;text-align:center;letter-spacing:0.05em;">
+      <span class="id">Sidoarjo, Jawa Timur · Siap untuk peluang baru</span>
+      <span class="en">Sidoarjo, East Java · Open to new opportunities</span>
+    </p>
+  </div>
+</div>
+
+
+
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2025 — Indra Adi Nugraha</p>
+    <p id="footer-loc"><span class="id">Human Resource Professional · Sidoarjo, Jawa Timur</span><span class="en">Human Resource Professional · Sidoarjo, East Java</span></p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function() {
+
+  // --- INIT SAVED PREFERENCES (always first) ---
+  var savedTheme = localStorage.getItem('pf-theme') || 'dark';
+  var savedLang  = localStorage.getItem('pf-lang')  || 'id';
+
+  // --- THEME & LANG ---
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    document.querySelectorAll('.theme-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.t === t); });
+    localStorage.setItem('pf-theme', t);
+  }
+  function setLang(l) {
+    document.documentElement.setAttribute('data-lang', l);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === l));
+    localStorage.setItem('pf-lang', l);
+    const btnId = document.getElementById('splash-btn');
+    if (btnId) {
+      btnId.querySelectorAll('.id').forEach(el => el.style.display = l === 'id' ? '' : 'none');
+      btnId.querySelectorAll('.en').forEach(el => el.style.display = l === 'en' ? '' : 'none');
+    }
+  }
+  window.setTheme = setTheme;
+  window.setLang = setLang;
+
+  // --- EXP DETAIL MODAL ---
+  var lang = function() { return document.documentElement.getAttribute('data-lang') || 'id'; };
+
+  // ============================================================
+  // DATA DETAIL POPUP EXPERIENCE
+  //   EDIT job1 = HR Business Partner (PT. Sari Murni Jaya)
+  //   EDIT job2 = Senior HR-IR Officer (PT. Trias Sentosa)
+  //   EDIT job3 = Senior HR Officer (PT. Trias Sentosa)
+  //   EDIT job4 = HRD Officer (PT. Trias Sentosa)
+  //
+  // Setiap job punya field:
+  //   role        → nama jabatan
+  //   company     → nama perusahaan
+  //   industry    → industri (id/en)
+  //   type        → tipe kerja (id/en)
+  //   location    → lokasi
+  //   period      → periode kerja (id/en)
+  //   duration    → durasi (id/en)
+  //   employees   → jumlah karyawan perusahaan
+  //   scope       → lingkup kerja (id/en)
+  //   jobdesc     → daftar job description (id/en) — array of string
+  //   achievements→ daftar pencapaian (id/en) — array of string
+  //   skills      → daftar skill yang digunakan — array of string
+  //   gallery     → daftar foto aktivitas:
+  //                 { url: 'LINK_FOTO_KAMU', caption: { id: '...', en: '...' } }
+  //                 Jika url kosong (''), tampil placeholder abu-abu
+  // ============================================================
+  var expData = {
+    job1: {
+      role: 'HR Business Partner',
+      company: 'PT. Sari Murni Jaya (Momogi Group)',
+      industry: { id: 'FMCG / Makanan & Minuman', en: 'FMCG / Food & Beverage' },
+      type: { id: 'Full-time', en: 'Full-time' },
+      location: 'Sidoarjo, Jawa Timur',
+      period: { id: 'Des 2025 — Sekarang', en: 'Dec 2025 — Present' },
+      duration: { id: '± 6 bulan', en: '± 6 months' },
+      employees: '500 – 1.000 karyawan',
+      scope: { id: 'Seluruh fungsi HR operasional & strategis', en: 'Full HR operational & strategic function' },
+      jobdesc: {
+        id: ['Mengelola rekrutmen end-to-end sesuai SLA yang ditentukan','Memastikan proses onboarding karyawan baru berjalan lancar','Mengawasi evaluasi kinerja mid year & end year serta goal setting KPI','Melakukan assessment karyawan PKWT yang akan diangkat tetap','Membuat PKWT, PKWTT, dan COINDA karyawan','Membangun hubungan konstruktif dengan serikat pekerja','Memastikan kepatuhan peraturan ketenagakerjaan nasional & regional','Menginisiasi program employee engagement','Menyusun laporan bulanan/mingguan ketenagakerjaan & rekrutmen','HR support audit ISO 14001, 22000 (Food Safety), dan GMP'],
+        en: ['Managing end-to-end recruitment per SLA','Ensuring smooth onboarding for new employees','Overseeing mid year & end year performance evaluation and KPI goal setting','Conducting assessments for PKWT employees to be permanently hired','Drafting PKWT, PKWTT, and COINDA employment agreements','Building constructive relations with labor unions','Ensuring national & regional labor regulatory compliance','Initiating employee engagement programs','Preparing monthly/weekly labor & recruitment reports','HR support for ISO 14001, 22000 (Food Safety), and GMP audits']
+      },
+      achievements: {
+        id: ['Membangun sistem onboarding terstruktur yang mempersingkat waktu adaptasi karyawan baru','Menginisiasi program engagement yang meningkatkan keterlibatan karyawan secara terukur','Mendukung keberhasilan audit ISO Food Safety & GMP dari sisi HR'],
+        en: ['Built a structured onboarding system that shortened new employee adaptation time','Initiated engagement programs that measurably improved employee involvement','Supported successful ISO Food Safety & GMP audit from the HR side']
+      },
+      skills: ['Recruitment', 'Onboarding', 'Performance Appraisal', 'Employee Engagement', 'Industrial Relations', 'ISO Support', 'PKWT/PKWTT', 'HR Reporting', 'Microsoft Office'],
+      gallery: [
+        { url: '', caption: { id: 'Sesi Onboarding Karyawan Baru', en: 'New Employee Onboarding Session' } },
+        { url: '', caption: { id: 'Audit ISO Food Safety & GMP', en: 'ISO Food Safety & GMP Audit' } },
+        { url: '', caption: { id: 'Program Employee Engagement', en: 'Employee Engagement Program' } }
+      ]
+    },
+    job2: {
+      role: 'Senior HR-IR Officer',
+      company: 'PT. Trias Sentosa, Tbk.',
+      industry: { id: 'Manufaktur / Kemasan Fleksibel', en: 'Manufacturing / Flexible Packaging' },
+      type: { id: 'Full-time', en: 'Full-time' },
+      location: 'Sidoarjo, Jawa Timur',
+      period: { id: 'Jun 2025 – Nov 2025', en: 'Jun 2025 – Nov 2025' },
+      duration: { id: '6 bulan', en: '6 months' },
+      employees: '1.000 – 2.000 karyawan',
+      scope: { id: 'Hubungan industrial, outsourcing & kepatuhan ketenagakerjaan', en: 'Industrial relations, outsourcing & labor compliance' },
+      jobdesc: {
+        id: ['Memimpin penyusunan dan peninjauan PKB/CLA bersama serikat pekerja','Mengelola penanganan keluhan dan perundingan bipartit/tripartit','Mengawasi proses outsourcing: perizinan vendor, rekrutmen, kinerja, hingga PHK','Menangani perizinan perusahaan dan ketenagakerjaan termasuk perpanjangan izin','Menyiapkan laporan ketenagakerjaan wajib (PKWT, WLK)','Melakukan audit kepatuhan vendor outsourcing','Memastikan kepatuhan peraturan ketenagakerjaan nasional & regional','HR support audit ISO 9001, 14001, 22000, SMK3, Sustainability, SMETA'],
+        en: ['Led the drafting and review of CBA/CLA with labor unions','Managed grievance handling and bipartite/tripartite negotiations','Oversaw outsourcing process: vendor permits, recruitment, performance, termination','Handled company and labor permits including renewals','Prepared mandatory labor reports (PKWT, WLK)','Conducted outsourcing vendor compliance audits','Ensured national & regional labor regulatory compliance','HR support for ISO 9001, 14001, 22000, SMK3, Sustainability, SMETA audits']
+      },
+      achievements: {
+        id: ['Berhasil memimpin peninjauan PKB yang disepakati kedua pihak secara kondusif','Memperkuat sistem audit vendor outsourcing sehingga meningkatkan kepatuhan hukum','Mendukung keberhasilan multi-standar ISO audit dari sisi HR'],
+        en: ['Successfully led CBA review agreed by both parties in a conducive manner','Strengthened outsourcing vendor audit system improving legal compliance','Supported multi-standard ISO audit success from the HR side']
+      },
+      skills: ['PKB / CLA', 'Industrial Relations', 'Outsourcing Management', 'Labor Compliance', 'Bipartit / Tripartit', 'ISO Audit', 'Perizinan Tenaga Kerja', 'HR Reporting', 'Microsoft Office'],
+      gallery: [
+        { url: '', caption: { id: 'Perundingan PKB dengan Serikat Pekerja', en: 'CBA Negotiation with Labor Union' } },
+        { url: '', caption: { id: 'Audit ISO 9001 & SMK3', en: 'ISO 9001 & SMK3 Audit' } },
+        { url: '', caption: { id: 'Koordinasi Outsourcing Vendor', en: 'Outsourcing Vendor Coordination' } }
+      ]
+    },
+    job3: {
+      role: 'Senior HR Officer',
+      company: 'PT. Trias Sentosa, Tbk.',
+      industry: { id: 'Manufaktur / Kemasan Fleksibel', en: 'Manufacturing / Flexible Packaging' },
+      type: { id: 'Full-time', en: 'Full-time' },
+      location: 'Sidoarjo, Jawa Timur',
+      period: { id: 'Jan 2023 – Jun 2025', en: 'Jan 2023 – Jun 2025' },
+      duration: { id: '2 tahun 6 bulan', en: '2 years 6 months' },
+      employees: '1.000 – 2.000 karyawan',
+      scope: { id: 'Operasional HR menyeluruh — kinerja, SOP, hubungan industrial, anggaran', en: 'Full HR operations — performance, SOP, industrial relations, budget' },
+      jobdesc: {
+        id: ['Mengelola penilaian kinerja dan asesmen kompetensi karyawan','Meninjau dan memperbarui SOP agar selaras dengan regulasi','Menangani perundingan bipartit dan pelaporan ke Disnaker','Mengelola alokasi cost center personalia dan pemantauan anggaran','Menyusun laporan bulanan ketenagakerjaan, rekrutmen, pelatihan, dan penggajian','Mengawasi perpanjangan izin peralatan operasional dan izin kerja perorangan','HR support audit ISO 9001, 14001, 22000, SMK3, Sustainability, SMETA'],
+        en: ['Managing employee performance appraisal and competency assessment','Reviewing and updating SOPs to align with regulations','Handling bipartite negotiations and Disnaker reporting','Managing personnel cost center allocation and budget monitoring','Preparing monthly labor, recruitment, training, and payroll reports','Overseeing operational equipment permit and individual work permit renewals','HR support for ISO 9001, 14001, 22000, SMK3, Sustainability, SMETA audits']
+      },
+      achievements: {
+        id: ['Memperbarui lebih dari 10 SOP HR yang diselaraskan dengan regulasi terbaru','Menjaga konsistensi laporan HR bulanan selama 2+ tahun tanpa kesalahan signifikan','Berhasil mengelola anggaran personalia sesuai target cost center yang ditetapkan'],
+        en: ['Updated more than 10 HR SOPs aligned with the latest regulations','Maintained consistency of monthly HR reports for 2+ years without significant errors','Successfully managed personnel budget in line with set cost center targets']
+      },
+      skills: ['Performance Management', 'SOP Development', 'Budget Control', 'Payroll Reporting', 'Bipartit / Disnaker', 'ISO Audit', 'Perizinan', 'HR Administration', 'Microsoft Office'],
+      gallery: [
+        { url: '', caption: { id: 'Penilaian Kinerja Karyawan', en: 'Employee Performance Appraisal' } },
+        { url: '', caption: { id: 'Training GCG (Good Corporate Governance)', en: 'GCG Training' } },
+        { url: '', caption: { id: 'Audit ISO & SMETA', en: 'ISO & SMETA Audit' } },
+        { url: '', caption: { id: 'Rapat Koordinasi HR Bulanan', en: 'Monthly HR Coordination Meeting' } }
+      ]
+    },
+    job4: {
+      role: 'HRD Officer',
+      company: 'PT. Trias Sentosa, Tbk.',
+      industry: { id: 'Manufaktur / Kemasan Fleksibel', en: 'Manufacturing / Flexible Packaging' },
+      type: { id: 'Full-time', en: 'Full-time' },
+      location: 'Sidoarjo, Jawa Timur',
+      period: { id: 'Agu 2020 – Des 2022', en: 'Aug 2020 – Dec 2022' },
+      duration: { id: '2 tahun 5 bulan', en: '2 years 5 months' },
+      employees: '1.000 – 2.000 karyawan',
+      scope: { id: 'Rekrutmen, pelatihan, dan administrasi HR umum', en: 'Recruitment, training, and general HR administration' },
+      jobdesc: {
+        id: ['Mengelola proses rekrutmen secara menyeluruh (end-to-end)','Mengoordinasikan kegiatan pelatihan dan pengembangan karyawan','Melaksanakan program induksi bagi karyawan baru','Menyusun laporan berkala rekrutmen dan pelatihan','Menangani evaluasi masa percobaan (probation) karyawan','Mengelola perpanjangan izin peralatan dan Surat Izin Operator (SIO)','HR support audit ISO 9001, 22000, dan Sustainability'],
+        en: ['Managing end-to-end recruitment process','Coordinating employee training and development activities','Implementing induction programs for new employees','Preparing periodic recruitment and training reports','Handling employee probation evaluation','Managing equipment permit renewals and Operator Work Permits (SIO)','HR support for ISO 9001, 22000, and Sustainability audits']
+      },
+      achievements: {
+        id: ['Membangun fondasi rekrutmen end-to-end yang efisien sejak bergabung','Mengkoordinasikan program pelatihan yang meningkatkan kompetensi karyawan baru','Memastikan seluruh SIO dan izin peralatan terbarukan tepat waktu tanpa gangguan operasional'],
+        en: ['Built an efficient end-to-end recruitment foundation from the start','Coordinated training programs that improved new employee competency','Ensured all SIO and equipment permits were renewed on time without operational disruption']
+      },
+      skills: ['End-to-End Recruitment', 'Training & Development', 'Probation Evaluation', 'SIO / Perizinan', 'HR Reporting', 'Onboarding', 'ISO Support', 'Microsoft Office'],
+      gallery: [
+        { url: '', caption: { id: 'Sesi Rekrutmen & Seleksi', en: 'Recruitment & Selection Session' } },
+        { url: '', caption: { id: 'Program Induksi Karyawan Baru', en: 'New Employee Induction Program' } },
+        { url: '', caption: { id: 'Koordinasi Pelatihan Internal', en: 'Internal Training Coordination' } }
+      ]
+    }
+  };
+
+  var currentGalleryIndex = 0;
+  var currentGallery = [];
+
+  function renderGallery(l) {
+    var g = currentGallery[currentGalleryIndex];
+    var total = currentGallery.length;
+    var caption = l === 'id' ? g.caption.id : g.caption.en;
+    var placeholder = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="560" height="240" viewBox="0 0 560 240"><rect width="560" height="240" fill="%23242118"/><text x="50%25" y="45%25" text-anchor="middle" fill="%237A6340" font-family="sans-serif" font-size="13" dy=".3em">📷 Upload foto di sini</text><text x="50%25" y="60%25" text-anchor="middle" fill="%235A5448" font-family="sans-serif" font-size="11" dy=".3em">' + encodeURIComponent(caption) + '</text></svg>';
+    var src = g.url || placeholder;
+    document.getElementById('galleryImg').src = src;
+    document.getElementById('galleryCaption').textContent = caption;
+    document.getElementById('galleryCounter').textContent = (currentGalleryIndex + 1) + ' / ' + total;
+    document.getElementById('galleryPrev').style.opacity = currentGalleryIndex === 0 ? '0.3' : '1';
+    document.getElementById('galleryNext').style.opacity = currentGalleryIndex === total - 1 ? '0.3' : '1';
+  }
+
+  window.galleryPrev = function() {
+    if (currentGalleryIndex > 0) { currentGalleryIndex--; renderGallery(lang()); }
+  };
+  window.galleryNext = function() {
+    if (currentGalleryIndex < currentGallery.length - 1) { currentGalleryIndex++; renderGallery(lang()); }
+  };
+
+  window.openExpModal = function(jobId) {
+    var d = expData[jobId];
+    var l = lang();
+
+    // Reset scroll to top
+    var inner = document.getElementById('expModalInner');
+    inner.scrollTop = 0;
+
+    var html = '<div class="em-header">';
+    html += '<div class="em-badge"><span>' + (l==='id' ? d.industry.id : d.industry.en) + '</span><span>' + (l==='id' ? d.type.id : d.type.en) + '</span></div>';
+    html += '<div class="em-role">' + d.role + '</div>';
+    html += '<div class="em-company">' + d.company + ' · ' + d.location + '</div>';
+    html += '</div>';
+
+    html += '<div class="em-section"><div class="em-section-title">' + (l==='id' ? 'Informasi Pekerjaan' : 'Job Information') + '</div>';
+    html += '<div class="em-info-grid">';
+    html += '<div class="em-info-item"><div class="em-info-label">' + (l==='id' ? 'Periode' : 'Period') + '</div><div class="em-info-val">' + (l==='id' ? d.period.id : d.period.en) + '</div></div>';
+    html += '<div class="em-info-item"><div class="em-info-label">' + (l==='id' ? 'Durasi' : 'Duration') + '</div><div class="em-info-val">' + (l==='id' ? d.duration.id : d.duration.en) + '</div></div>';
+    html += '<div class="em-info-item"><div class="em-info-label">' + (l==='id' ? 'Jumlah Karyawan' : 'Company Size') + '</div><div class="em-info-val">' + d.employees + '</div></div>';
+    html += '<div class="em-info-item"><div class="em-info-label">' + (l==='id' ? 'Lingkup Kerja' : 'Work Scope') + '</div><div class="em-info-val">' + (l==='id' ? d.scope.id : d.scope.en) + '</div></div>';
+    html += '</div></div>';
+
+    html += '<div class="em-section"><div class="em-section-title">' + (l==='id' ? 'Job Description' : 'Job Description') + '</div>';
+    html += '<ul class="em-desc-list">';
+    var jd = l==='id' ? d.jobdesc.id : d.jobdesc.en;
+    jd.forEach(function(item) { html += '<li>' + item + '</li>'; });
+    html += '</ul></div>';
+
+    html += '<div class="em-section"><div class="em-section-title">' + (l==='id' ? 'Pencapaian Utama' : 'Key Achievements') + '</div>';
+    var ac = l==='id' ? d.achievements.id : d.achievements.en;
+    ac.forEach(function(item) { html += '<div class="em-achievement"><p>' + item + '</p></div>'; });
+    html += '</div>';
+
+    html += '<div class="em-section"><div class="em-section-title">' + (l==='id' ? 'Skill yang Digunakan' : 'Skills Used') + '</div>';
+    html += '<div class="em-tags">';
+    d.skills.forEach(function(s) { html += '<span class="em-tag">' + s + '</span>'; });
+    html += '</div></div>';
+
+    // Gallery section
+    if (d.gallery && d.gallery.length > 0) {
+      html += '<div class="em-section">';
+      html += '<div class="em-section-title">' + (l==='id' ? 'Galeri Aktivitas' : 'Activity Gallery') + '</div>';
+      html += '<div class="em-gallery">';
+      html += '<img id="galleryImg" src="" alt="" style="width:100%;height:220px;object-fit:cover;border-radius:3px;border:1px solid var(--border);background:var(--bg3);">';
+      html += '<div class="em-gallery-nav">';
+      html += '<button id="galleryPrev" class="gallery-arrow" onclick="galleryPrev()">&#8592;</button>';
+      html += '<div style="text-align:center;flex:1;">';
+      html += '<div id="galleryCaption" style="font-size:0.85rem;color:var(--text-muted);font-weight:400;margin-bottom:0.2rem;"></div>';
+      html += '<div id="galleryCounter" style="font-size:0.7rem;color:var(--text-dim);letter-spacing:0.1em;"></div>';
+      html += '</div>';
+      html += '<button id="galleryNext" class="gallery-arrow" onclick="galleryNext()">&#8594;</button>';
+      html += '</div></div></div>';
+    }
+
+    document.getElementById('expModalContent').innerHTML = html;
+
+    // Init gallery state
+    currentGallery = d.gallery || [];
+    currentGalleryIndex = 0;
+    if (currentGallery.length > 0) renderGallery(l);
+
+    var modal = document.getElementById('expModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      document.getElementById('expModalInner').scrollTop = 0;
+    }, 10);
+  };
+
+  window.closeExpModal = function() {
+    document.getElementById('expModal').style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+
+  setTheme(savedTheme);
+  setLang(savedLang);
+
+  // --- EMAIL OPTIONS ---
+  window.toggleEmailOptions = function(e) {
+    var opts = document.getElementById('emailOptions');
+    var arrow = document.getElementById('emailArrow');
+    if (!opts) return;
+    var isOpen = opts.style.display === 'block';
+    opts.style.display = isOpen ? 'none' : 'block';
+    arrow.textContent = isOpen ? '→' : '↓';
+  };
+
+  window.copyEmail = function(e) {
+    e.stopPropagation();
+    var email = 'ia.nugraha97@gmail.com';
+    navigator.clipboard.writeText(email).then(function() {
+      var btn = document.getElementById('copyEmailBtn');
+      var label = document.getElementById('copyLabel');
+      var l = lang();
+      label.innerHTML = '<span style="color:var(--accent)">' + (l==='id' ? '✓ Tersalin!' : '✓ Copied!') + '</span>';
+      setTimeout(function() {
+        label.innerHTML = '<span class="id">Salin Email</span><span class="en">Copy Email</span>';
+        // re-apply lang
+        label.querySelectorAll('.id').forEach(function(el){ el.style.display = l==='en' ? 'none' : ''; });
+        label.querySelectorAll('.en').forEach(function(el){ el.style.display = l==='id' ? 'none' : ''; });
+      }, 2000);
+    });
+  };
+
+
+  window.openModal = function() {
+    var m = document.getElementById('contactModal');
+    m.style.display = 'flex';
+  };
+  window.closeModal = function() {
+    var m = document.getElementById('contactModal');
+    m.style.display = 'none';
+    // reset email options
+    var opts = document.getElementById('emailOptions');
+    if (opts) opts.style.display = 'none';
+    var arrow = document.getElementById('emailArrow');
+    if (arrow) arrow.textContent = '→';
+  };
+
+  // --- DOWNLOAD CV ---
+  window.downloadCV = function() {
+    alert('CV PDF belum diupload. Silakan ganti fungsi downloadCV() dengan link ke file PDF CV kamu.');
+  };
+
+  // --- ANTI-COPY PROTECTION ---
+  document.addEventListener('copy', function(e) { e.preventDefault(); });
+  document.addEventListener('cut', function(e) { e.preventDefault(); });
+  document.addEventListener('selectstart', function(e) { e.preventDefault(); });
+  document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+  document.addEventListener('keydown', function(e) {
+    if (
+      ((e.ctrlKey || e.metaKey) && ['c','x','u','s','a','p'].includes(e.key.toLowerCase())) ||
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase()))
+    ) e.preventDefault();
+  });
+
+  // --- SPLASH SCREEN ---
+  window.enterSite = function() {
+    var splash = document.getElementById('splash');
+    var main = document.getElementById('main-content');
+    splash.style.opacity = '0';
+    splash.style.transition = 'opacity 0.6s ease';
+    setTimeout(function() {
+      splash.style.display = 'none';
+      main.style.display = 'block';
+    }, 600);
+  };
+
+  function initSplash() {
+    setTimeout(function() {
+      var lt = document.getElementById('splash-line-top');
+      var lb = document.getElementById('splash-line-bottom');
+      if (lt) lt.style.height = '45%';
+      if (lb) lb.style.height = '45%';
+    }, 100);
+    setTimeout(function() {
+      var n = document.getElementById('splash-name');
+      if (n) { n.style.opacity = '1'; n.style.transform = 'none'; }
+    }, 250);
+    setTimeout(function() {
+      var ey = document.getElementById('splash-eyebrow');
+      if (ey) { ey.style.opacity = '1'; ey.style.transform = 'none'; }
+    }, 650);
+    setTimeout(function() {
+      var d = document.getElementById('splash-divider');
+      if (d) d.style.width = '52px';
+    }, 950);
+    setTimeout(function() {
+      var btn = document.getElementById('splash-btn');
+      if (btn) { btn.style.opacity = '1'; btn.style.transform = 'none'; }
+    }, 1400);
+  }
+  initSplash();
+
+  // --- BACK TO TOP ---
+  window.addEventListener('scroll', function() {
+    var bt = document.getElementById('backTop');
+    if (bt) bt.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // --- COUNT-UP ---
+  function countUp(el, target, suffix, duration) {
+    var start = 0;
+    var step = target / (duration / 16);
+    var timer = setInterval(function() {
+      start = Math.min(start + step, target);
+      el.textContent = Math.floor(start) + suffix;
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  }
+  var statEls = document.querySelectorAll('.stat-num[data-target]');
+  var counted = false;
+  if (statEls.length) {
+    var statsObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        statEls.forEach(function(el) {
+          countUp(el, +el.dataset.target, el.dataset.suffix || '', 1200);
+        });
+      }
+    }, { threshold: 0.5 });
+    statsObs.observe(statEls[0]);
+  }
+
+  // --- REVEAL ---
+  var reveals = document.querySelectorAll('.reveal');
+  var revObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e, i) {
+      if (e.isIntersecting) {
+        setTimeout(function() { e.target.classList.add('visible'); }, 75 * i);
+        revObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+  reveals.forEach(function(r) { revObs.observe(r); });
+
+})();
+</script>
+</div><!-- end main-content -->
+</body>
+</html>
