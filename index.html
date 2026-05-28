@@ -27,68 +27,70 @@ body { font-weight: 400; overflow-x: hidden; transition: background 0.5s, color 
   --font:'Plus Jakarta Sans',sans-serif;--body-font:'Plus Jakarta Sans',sans-serif;
 }
 [data-theme="ocean"] {
-  --bg:#060C12;--bg2:#0A1520;--bg3:#0E1C2C;--bg4:#142438;
-  --accent:#5BC8F5;--accent-light:#93DDFB;--accent-dim:#2A9FD6;
-  --text:#EDF6FD;--text-muted:#A8D4EC;--text-dim:#6AABCF;
-  --border:rgba(91,200,245,0.18);--border-bright:rgba(91,200,245,0.42);
-  --nav-bg:rgba(6,12,18,0.95);--tag-bg:#0E1C2C;
-  --font:'Sora',sans-serif;--body-font:'Sora',sans-serif;
+  --bg:#1A1816;--bg2:#201E1B;--bg3:#272420;--bg4:#2E2B26;
+  --accent:#C4B49A;--accent-light:#D9CDB8;--accent-dim:#9A8C76;
+  --text:#EDE8E1;--text-muted:#B5AFA6;--text-dim:#7A756E;
+  --border:rgba(196,180,154,0.15);--border-bright:rgba(196,180,154,0.35);
+  --nav-bg:rgba(26,24,22,0.96);--tag-bg:#272420;
+  --font:'DM Sans',sans-serif;--body-font:'DM Sans',sans-serif;
 }
 
 body { background:var(--bg);color:var(--text);font-family:var(--body-font);
-  -webkit-user-select:none;-moz-user-select:none;user-select:none; }
+  -webkit-user-select:none;-moz-user-select:none;user-select:none;padding-top:58px; }
 
-/* NAV */
+/* NAV — horizontal top bar */
 nav {
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1.1rem 3rem;
+  padding:0 3rem;height:58px;
   display:flex;justify-content:space-between;align-items:center;
   background:var(--nav-bg);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);transition:background 0.5s,border-color 0.5s;
 }
 .nav-left { display:flex;align-items:center;gap:1.25rem; }
 .nav-logo { font-family:var(--font);font-size:1.05rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);transition:color 0.5s; }
-.nav-links { display:flex;gap:2rem;list-style:none; }
-.nav-links a { text-decoration:none;color:var(--text-muted);font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;font-weight:400; }
-.nav-links a:hover { color:var(--accent); }
 .nav-controls { display:flex;align-items:center;gap:10px; }
+.nav-top { display:none; }
+.nav-bottom { display:none; }
 
-/* LANG TOGGLE */
+/* LANG TOGGLE — horizontal */
 .lang-toggle {
   display:flex;align-items:center;
   background:var(--bg3);border:1px solid var(--border-bright);
   border-radius:100px;overflow:hidden;
+  height:36px;
 }
 .lang-btn {
-  padding:6px 14px;font-size:0.76rem;letter-spacing:0.1em;
+  padding:0 14px;font-size:0.76rem;letter-spacing:0.1em;
   text-transform:uppercase;border:none;cursor:pointer;
   background:transparent;color:var(--text-muted);
   transition:all 0.25s;font-family:var(--body-font);font-weight:500;
+  height:100%;display:flex;align-items:center;
 }
 .lang-btn.active { background:var(--accent);color:var(--bg); }
 
-/* THEME SWITCHER */
+/* THEME SWITCHER — horizontal */
 .theme-switcher {
   display:flex;align-items:center;gap:5px;
   background:var(--bg3);border:1px solid var(--border-bright);
-  border-radius:100px;padding:5px 8px;
+  border-radius:100px;padding:4px 8px;
+  height:36px;
 }
 .t-label { font-size:0.72rem;letter-spacing:0.1em;color:var(--text-muted);text-transform:uppercase;padding:0 3px; }
 .theme-btn {
-  width:28px;height:28px;border-radius:50%;border:2px solid transparent;
-  cursor:pointer;transition:all 0.25s;font-size:12px;
+  width:26px;height:26px;border-radius:50%;border:2px solid transparent;
+  cursor:pointer;transition:all 0.25s;font-size:11px;
   display:flex;align-items:center;justify-content:center;
 }
 .theme-btn:hover { transform:scale(1.12); }
 .theme-btn.active { border-color:var(--accent); }
 .theme-btn[data-t="dark"]  { background:#2A2418; color:#D4B078; }
 .theme-btn[data-t="light"] { background:#C8DEC8; color:#1E4D20; }
-.theme-btn[data-t="ocean"] { background:#0A2A45; color:#5BC8F5; }
+.theme-btn[data-t="ocean"] { background:#242220; color:#C4B49A; }
 
 /* DOWNLOAD BTN */
 .nav-contact-btn {
   display:inline-flex;align-items:center;gap:6px;
-  padding:7px 18px;
+  padding:0 18px;height:36px;
   background:var(--accent);color:var(--bg);
   border:none;border-radius:100px;cursor:pointer;
   font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
@@ -99,7 +101,7 @@ nav {
 
 .dl-btn {
   display:inline-flex;align-items:center;gap:6px;
-  padding:7px 16px;border:1px solid var(--border-bright);
+  padding:0 16px;height:36px;border:1px solid var(--border-bright);
   color:var(--text-muted);background:transparent;
   font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
   border-radius:100px;transition:all 0.3s;
@@ -107,6 +109,50 @@ nav {
 }
 .dl-btn:hover { border-color:var(--accent);color:var(--accent); }
 .dl-btn svg { width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round; }
+.dl-btn-label { font-size:0.76rem;letter-spacing:0.1em; }
+
+/* FLOATING SIDE NAV */
+.side-nav {
+  position:fixed;top:50%;left:1.4rem;transform:translateY(-50%);
+  z-index:99;
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  background:var(--nav-bg);backdrop-filter:blur(14px);
+  border:1px solid var(--border-bright);border-radius:28px;
+  padding:8px 0;
+  transition:background 0.5s,border-color 0.5s;
+}
+.side-nav a {
+  display:flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border-radius:50%;
+  text-decoration:none;color:var(--text-dim);
+  font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
+  font-weight:600;font-family:var(--body-font);
+  transition:all 0.25s;position:relative;
+}
+.side-nav a:hover,
+.side-nav a.active { color:var(--accent); }
+.side-nav a::before {
+  content:'';position:absolute;left:6px;right:6px;top:6px;bottom:6px;
+  border-radius:50%;background:var(--bg3);
+  opacity:0;transition:opacity 0.25s;
+}
+.side-nav a:hover::before,
+.side-nav a.active::before { opacity:1; }
+.side-nav a span { position:relative;z-index:1; }
+.side-nav-dot {
+  width:4px;height:4px;border-radius:50%;
+  background:var(--border-bright);margin:2px auto;
+}
+/* Tooltip on hover */
+.side-nav a[data-tip]:hover::after {
+  content:attr(data-tip);
+  position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);
+  background:var(--bg3);color:var(--text);
+  font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:6px;border:1px solid var(--border-bright);
+  white-space:nowrap;pointer-events:none;
+  font-weight:500;
+}
 
 /* ============================================================
    RESPONSIVITAS GAMBAR — berlaku untuk semua gambar di halaman
@@ -137,7 +183,7 @@ img {
 }
 
 
-.hero { min-height:100vh;display:flex;align-items:center;padding:0 3rem;position:relative;overflow:hidden; }
+.hero { min-height:100vh;display:flex;align-items:center;padding:0 3rem 0 6rem;position:relative;overflow:hidden; }
 .hero-glow { position:absolute;top:-150px;right:-150px;width:600px;height:600px;border-radius:50%;pointer-events:none; }
 [data-theme="dark"]  .hero-glow { background:radial-gradient(circle,rgba(212,176,120,0.08) 0%,transparent 70%); }
 [data-theme="light"] .hero-glow { background:radial-gradient(circle,rgba(30,77,32,0.07) 0%,transparent 70%); }
@@ -170,7 +216,7 @@ img {
 /* SECTIONS */
 section { padding:6.5rem 0;transition:background 0.5s; }
 .sec-alt { background:var(--bg2); }
-.section-inner { max-width:1100px;margin:0 auto;padding:0 4rem; }
+.section-inner { max-width:1100px;margin:0 auto;padding:0 4rem 0 5.5rem; }
 
 /* apply section-inner padding to direct section children */
 section > .reveal,
@@ -182,10 +228,10 @@ section > .contact-inner {
   max-width:1100px;
   margin-left:auto;
   margin-right:auto;
-  padding-left:4rem;
+  padding-left:5.5rem;
   padding-right:4rem;
 }
-.hero { padding-left:4rem;padding-right:4rem; }
+.hero { padding-left:5.5rem;padding-right:4rem; }
 .hero-stats { right:4rem; }
 .contact-sec > .reveal { max-width:700px;margin:0 auto;padding:0 2rem; }
 .section-label { font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:0.7rem;transition:color 0.5s;font-weight:500; }
@@ -476,25 +522,18 @@ footer p { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.08em;font-we
      ============================================================ -->
 <nav>
   <div class="nav-left">
-    <ul class="nav-links">
-      <li><a href="#tentang"><span class="id">Tentang</span><span class="en">About</span></a></li>
-      <li><a href="#pengalaman"><span class="id">Pengalaman</span><span class="en">Experience</span></a></li>
-      <li><a href="#keahlian"><span class="id">Keahlian</span><span class="en">Skills</span></a></li>
-      <li><a href="#pendidikan"><span class="id">Pendidikan</span><span class="en">Education</span></a></li>
-    </ul>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('id')">ID</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <div class="theme-switcher">
-      <span class="t-label">Tema</span>
       <button class="theme-btn active" data-t="dark"  onclick="setTheme('dark')"  title="Dark Gold">✦</button>
       <button class="theme-btn"        data-t="light" onclick="setTheme('light')" title="Light Minimal">◎</button>
-      <button class="theme-btn"        data-t="ocean" onclick="setTheme('ocean')" title="Ocean Blue">◈</button>
+      <button class="theme-btn"        data-t="ocean" onclick="setTheme('ocean')" title="Warm Charcoal">◈</button>
     </div>
     <button class="dl-btn" onclick="downloadCV()">
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      CV
+      <span class="dl-btn-label">CV</span>
     </button>
   </div>
   <button class="nav-contact-btn" onclick="openModal()">
@@ -502,6 +541,17 @@ footer p { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.08em;font-we
     <span class="en">Contact Me</span>
   </button>
 </nav>
+
+<!-- FLOATING SIDE NAV -->
+<aside class="side-nav" id="sideNav">
+  <a href="#tentang" class="active" data-tip-id="Tentang" data-tip-en="About"><span class="id">TEN</span><span class="en">ABT</span></a>
+  <div class="side-nav-dot"></div>
+  <a href="#pengalaman" data-tip-id="Pengalaman" data-tip-en="Experience"><span class="id">EXP</span><span class="en">EXP</span></a>
+  <div class="side-nav-dot"></div>
+  <a href="#keahlian" data-tip-id="Keahlian" data-tip-en="Skills"><span class="id">KEA</span><span class="en">SKL</span></a>
+  <div class="side-nav-dot"></div>
+  <a href="#pendidikan" data-tip-id="Pendidikan" data-tip-en="Education"><span class="id">EDU</span><span class="en">EDU</span></a>
+</aside>
 
 <!-- ============================================================
      HERO SECTION — halaman utama pertama yang dilihat
@@ -751,7 +801,7 @@ footer p { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.08em;font-we
 <!-- EXP DETAIL MODAL -->
 <div id="expModal" style="
   display:none;position:fixed;
-  top:62px;left:0;right:0;bottom:0;
+  top:0;left:0;right:0;bottom:0;
   z-index:90;
   background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);
   display:none;align-items:center;justify-content:center;
@@ -762,7 +812,7 @@ footer p { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.08em;font-we
     max-width:640px;width:100%;
     padding:2.5rem;position:relative;
     border-radius:6px;animation:modalIn 0.3s ease;
-    height:calc(100vh - 62px - 3rem);
+    height:calc(100vh - 3rem);
     max-height:780px;
     overflow-y:auto;
     overflow-x:hidden;
@@ -1399,6 +1449,37 @@ footer p { font-size:0.78rem;color:var(--text-dim);letter-spacing:0.08em;font-we
     });
   }, { threshold: 0.07 });
   reveals.forEach(function(r) { revObs.observe(r); });
+
+  // --- SIDE NAV ACTIVE STATE (scroll spy) ---
+  var sideLinks = document.querySelectorAll('.side-nav a');
+  var sections = ['tentang','pengalaman','keahlian','pendidikan'];
+  function updateSideNav() {
+    var scrollY = window.scrollY + window.innerHeight * 0.35;
+    var current = sections[0];
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    sideLinks.forEach(function(a) {
+      var href = a.getAttribute('href').replace('#','');
+      a.classList.toggle('active', href === current);
+    });
+  }
+  window.addEventListener('scroll', updateSideNav, { passive: true });
+  updateSideNav();
+
+  // Update side-nav tooltip text on lang change (patch setLang)
+  var _origSetLang = window.setLang;
+  window.setLang = function(l) {
+    _origSetLang(l);
+    sideLinks.forEach(function(a) {
+      a.setAttribute('data-tip', l === 'id' ? a.dataset.tipId : a.dataset.tipEn);
+    });
+  };
+  // Init tooltip text
+  sideLinks.forEach(function(a) {
+    a.setAttribute('data-tip', lang() === 'id' ? a.dataset.tipId : a.dataset.tipEn);
+  });
 
 })();
 </script>
